@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="description" content="The only place to interact with your Lucid Lands NFTs and Game.">
+<meta name="keywords" content="Lucid Lands, Cryptocurrency, gameFi, P2E, BSC, NFTs">
+<meta name="author" content="Lucid Lands">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Buy and Sell your Lucid Lands Heroes and Shroomies and Stake them for added value." />
+<meta name="twitter:title" content="Lucid Lands" />
+<meta name="twitter:site" content="@LucidLandsOffical" />
+<meta name="twitter:image" content="https://dev.d3vq8gly5yspi7.amplifyapp.com/assets/static/snapshot.png" />
+<meta name="twitter:creator" content="@LucidLandsOffical" />
+<title>Lucid Lands</title>
+<link rel="icon" type="image/png" href="assets/img/lands_ico.png">
+<link rel="apple-touch-icon" type="image/png" href="assets/img/lands_ico.png">
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/lands_ico.png">
+<!--Frameworks--> 
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"	  
+/>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+<!--Loading-->
+<link rel="stylesheet" type="text/css" href="assets/css/ldbtn.min.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/loading.min.css"/>
+
+<!--SideNav-->
+<div id="sideNav" class="sidenav">
+  <div class="mainmenu"><a href="https://lucidlands.io/" ><img data-toggle="tooltip" data-placement="right" title="Home"  src="assets/img/icon_lands.png" class="left-icon-main" ></a><a href="#" onClick="activatePane('forge')" class="ignore-click"><img src="assets/img/anvil.png" data-toggle="tooltip" data-placement="right" title="The Forge of Heroes" class="left-icon selected ignore-click" id="side_forge"></a><a class="ignore-click" href="#" onClick="activatePane('inventory')"><img data-toggle="tooltip" data-placement="right" title="Inventory" src="assets/img/swords-emblem.png" class="left-icon ignore-click" id="side_inventory"></a><a href="#" onClick="activatePane('market')" class="ignore-click"><img src="assets/img/shop.png" data-toggle="tooltip" data-placement="right" title="Marketplace" class="left-icon ignore-click" id="side_market"></a><a href="#" onClick="activatePane('stake')" class="ignore-click"><img data-toggle="tooltip" data-placement="right" title="Staking" src="assets/img/minerals.png " class="left-icon ignore-click" id="side_stake"></a><a href="https://pancakeswap.finance/swap#/swap?outputCurrency=0x4691F60c894d3f16047824004420542E4674E621" target="_blank" ><img data-toggle="tooltip" data-placement="right" title="Buy LLG on PCS" src="assets/img/coins.png" class="left-icon"></a><a href="https://bscscan.com/address/0x4691F60c894d3f16047824004420542E4674E621" target="_blank"><img data-toggle="tooltip" data-placement="right" title="Contract" src="assets/img/scroll-unfurled.png" class="left-icon "></a></div>
+</div>
+<div id="topNav" class="topNav">
+  <div class="topMain">
+    <div class="align-middle"><a href="#" onClick="activatePane('forge')" class="ignore-click"><img src="assets/img/anvil.png" class="top-icon selected ignore-click" id="top_forge"></a><a class="ignore-click" href="#" onClick="activatePane('inventory')"><img src="assets/img/swords-emblem.png" class="top-icon ignore-click" id="top_inventory"></a><a href="#" class="ignore-click" onClick="activatePane('market')"><img src="assets/img/shop.png" class="top-icon ignore-click" id="top_market"></a><a href="#" class="ignore-click" onClick="activatePane('stake')"><img src="assets/img/minerals.png" class="top-icon ignore-click" id="top_stake"></a><a href="https://pancakeswap.finance/swap#/swap?outputCurrency=0x4691F60c894d3f16047824004420542E4674E621" target="_blank"><img src="assets/img/coins.png" class="top-icon" ></a><a href="https://bscscan.com/address/0x4691F60c894d3f16047824004420542E4674E621" target="_blank" ><img src="assets/img/scroll-unfurled.png" class="top-icon"></a></div>
+  </div>
+</div>
+
+<!--Error -->
+
+<link rel="stylesheet" href="assets/css/dapp.css?v312" type="text/css">
+</head><div id="err_panel" class="errPanel hidden">
+  <div class="err_hld">
+    <div id="err_text" class="errText">Err Text</div>
+    <div class="closeErr"><a href="#" class="whiteClick" onClick="closeError(event)"><i class="far fa-times-circle"></i></a></div>
+  </div>
+</div>
+
+<!-- BODY -->
+<body class="bg">
+<main> 
+  
+  <!-- BEGIN SECTION PANES -->
+  <div class="full-width text-center"> <img class="bg_full_screen_mobile" src="assets/img/lucid_bg_mobile.jpg"> <img class="bg_full_screen" src="assets/img/lucid_bg_main.jpg"></div>
+  <section id="section_forge" class="section_forge" >
+    <div class ="container text-center container_rewards " >
+      <div id="top-socials" class="top_socials mt-1">
+        <div><a href="https://t.me/LucidLandsOffical"> <i class="fab fa-telegram-plane social_top" aria-hidden="true"></i></a> <a href="https://twitter.com/lucid_lands"> <i class="fab fa-twitter social_top" aria-hidden="true"></i></a> <a href="https://discord.gg/caXEYZb5Dw"> <i class="fab fa-discord social_top" aria-hidden="true"></i></a> </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-12 mt-5 ">
+          <div class="entry-header-main">
+            <div class="margin-lr">
+              <div class="entry-header font-shark mt-5">The Forge of Heroes</div>
+              <div class="container width-max" id="disconnected_top">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-md-6 mt-4 width-max main-text" >"Welcome to the <b>The Forge of Heroes</b> where you mint your Lucid Lands Heroes and Shroomies Companions to prepare for the adventures ahead.  If you have already minted a Hero or Shroom head you can Manage Your NFTs using the Menu or Deploy your Heroes to Staking." </div>
+                  <div class="col-12 mt-4 mb-4"><a href="https://www.lucidlands.io">
+                    <button class="btn btn-primary btn-lg btn-white btn-block  shark_connect" >Learn More About the Lucid Lands</button>
+                    </a></div>
+                  <hr/>
+					<div class="col-12">
+					 <div class="entry-sub-header font-shark mb-3">Choose Your Gate Wisely</div>
+					</div>
+                  <div class="col-12 col-lg-6 col-xl-4  mb-5">
+                    <div class="container-fluid text-center">
+                      <div class="row gy-0 g-0 img-max-width marginlr-auto flex_macfix card2"> <img src="assets/img/img_gate1.jpg" class="header_img">
+                        <div class="col-12 entry-sub">
+                          <div class="entry-text-bullets">
+                            <div class="cat-price text-center font-shark line-price"> PRICE : 18000 LLG </div>
+							  <div class="cat-price text-center font-shark supply-line"> SUPPLY : <span id="hero_mint_remaining">-</span> / 1000 </div>
+							  <div class="cat-price text-center height-stake"> <span class="affirmative">CAN BE STAKED</span> </div>
+							  <div class="entry-text-main text-center font_christmas_base mb-2"> The First Heroes came from the Genesis Gate to stake their claim in the Lucid Lands.</div>
+							  <div class="cat-price text-center mb-2 draw-size">DRAW RATE</div>
+                            <div class="container container-draw-rate">
+							  <div class="row">
+								<div class="col-3 text-center">
+								       <div class="percent-val">59.7%</div><div class="name-val">Common</div>
+								  </div>
+								  <div class="col-3">
+								              <div class="percent-val">35%</div><div class="name-val">Rare</div>
+								  </div>
+								  <div class="col-3">
+						       <div class="percent-val">5%</div><div class="name-val">Epic</div>
+								  </div>
+								  <div class="col-3">
+								             <div class="percent-val">0.3%</div><div class="name-val">Legendary</div>
+								  </div>
+								
+								</div>
+							  </div>
+                            <div class="entry-text-main text-center font_christmas_base"> </div>
+                            <div class="entry-text-main text-center font_christmas_base mt-2 bottom_always_fuckyou">
+                              <button onClick="mintHero_Click()" id="btn_mint_hero" class="btn mint_connect mb-3 hidden ld-ext-right" >Mint Your Hero
+                              <div class="ld ld-ring ld-spin"></div>
+                              </button>
+							<button disabled id="btn_mint_hero_loading" class="btn mint_connect mb-3 ld-ext-right running" >Loading
+                              <div class="ld ld-ring ld-spin"></div>
+                              </button>
+                              <div id="div_mint_hero" class="hidden">Minting is currently <b>PAUSED</b></div>
+                              <div class="smaller text-truncate" id="token_address_hero"> </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+					
+					 <div class="col-12 col-lg-6 col-xl-4 mb-5">
+                    <div class="container-fluid text-center">
+                      <div class="row gy-0 g-0 img-max-width marginlr-auto flex_macfix card2"> <img src="assets/img/img_gate2.jpg" class="header_img">
+                        <div class="col-12 entry-sub">
+                          <div class="entry-text-bullets">
+                            <div class="cat-price text-center font-shark line-price"> PRICE : 0.4 BNB </div>
+							  <div class="cat-price text-center font-shark supply-line"> SUPPLY : Unlimited </div>
+							  <div class="cat-price text-center  height-stake"> <span class="neutral">REWARDS COMING SOON</span> </div>
+							  <div class="entry-text-main text-center font_christmas_base mb-2"> Through Bamidbar the hordes came, Heroes to make their fortune.</div>
+							  <div class="cat-price text-center mb-2 draw-size"> DRAW RATE</div>
+                            <div class="container container-draw-rate">
+							  <div class="row">
+								<div class="col-3 text-center">
+								       <div class="percent-val">60%</div><div class="name-val">Common</div>
+								  </div>
+								  <div class="col-3">
+								              <div class="percent-val">38%</div><div class="name-val">Rare</div>
+								  </div>
+								  <div class="col-3">
+						       <div class="percent-val">2%</div><div class="name-val">Epic</div>
+								  </div>
+								  <div class="col-3">
+								             <div class="percent-val">0%</div><div class="name-val">Legendary</div>
+								  </div>
+								
+								</div>
+							  </div>
+                            <div class="entry-text-main text-center font_christmas_base"> </div>
+                            <div class="entry-text-main text-center font_christmas_base mt-2 bottom_always_fuckyou">
+                              <button onClick="mintHero2_Click()" id="btn_mint_hero2" class="btn mint_connect mb-3 hidden ld-ext-right" >Mint Your Hero
+                              <div class="ld ld-ring ld-spin"></div>
+                              </button>
+							<button disabled id="btn_mint_hero2_loading" class="btn mint_connect mb-3 ld-ext-right running" >Loading
+                              <div class="ld ld-ring ld-spin"></div>
+                              </button>
+                              <div id="div_mint_hero2" class="hidden">Minting is currently <b>PAUSED</b></div>
+                              <div class="smaller text-truncate" id="token_address_hero2"> </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+					 <div class="col-12 col-lg-6 col-xl-4 mb-5">
+                    <div class="container-fluid text-center">
+                      <div class="row gy-0 g-0 img-max-width marginlr-auto flex_macfix card2"> <img src="assets/img/img_gate3.jpg" class="header_img">
+                        <div class="col-12 entry-sub">
+                          <div class="entry-text-bullets">
+                            <div class="cat-price text-center font-shark line-price"> PRICE : 1.0 BNB </div>
+							  <div class="cat-price text-center font-shark supply-line"> SUPPLY : Unlimited </div>
+							  <div class="cat-price text-center height-stake"> <span class="neutral">REWARDS COMING SOON</span> </div>
+							   <div class="entry-text-main text-center font_christmas_base mb-2"> The Greatest of Heroes came through Vayikra, last of the Great Gates to open.</div>
+							  <div class="cat-price text-center mb-2 draw-size"> DRAW RATE</div>
+                            <div class="container container-draw-rate">
+							  <div class="row">
+								<div class="col-3 text-center">
+								       <div class="percent-val">35%</div><div class="name-val">Common</div>
+								  </div>
+								  <div class="col-3">
+								              <div class="percent-val">60.5%</div><div class="name-val">Rare</div>
+								  </div>
+								  <div class="col-3">
+						       <div class="percent-val">5%</div><div class="name-val">Epic</div>
+								  </div>
+								  <div class="col-3">
+								             <div class="percent-val">0.5%</div><div class="name-val">Legendary</div>
+								  </div>
+								
+								</div>
+							  </div>
+                            <div class="entry-text-main text-center font_christmas_base"> </div>
+                            <div class="entry-text-main text-center font_christmas_base mt-2 bottom_always_fuckyou">
+                              <button onClick="mintHero3_Click()" id="btn_mint_hero3" class="btn mint_connect mb-3 hidden ld-ext-right" >Mint Your Hero
+                              <div class="ld ld-ring ld-spin"></div>
+                              </button>
+							<button disabled id="btn_mint_hero3_loading" class="btn mint_connect mb-3 ld-ext-right running" >Loading
+                              <div class="ld ld-ring ld-spin"></div>
+                              </button>
+                              <div id="div_mint_hero3" class="hidden">Minting is currently <b>PAUSED</b></div>
+                              <div class="smaller text-truncate" id="token_address_hero3"> </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+					<div class="col-12 mt-1 mb-5">
+                    <div class="container">
+						
+						<div class="row gx-0 justify-content-center gy-2">
+						<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/1-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">Bahamut</div>
+								<div class="hero-val-rarity rare-common font_christmas_base">Common</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_1">-</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/2-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">Wu Kong</div>
+								<div class="hero-val-rarity rare-common font_christmas_base">Common</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_2">-</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/3-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">Medusa</div>
+								<div class="hero-val-rarity rare-common font_christmas_base">Common</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_3">-</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/4-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">Talmut</div>
+								<div class="hero-val-rarity rare-common font_christmas_base">Common</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_4">-</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/5-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">KEO502</div>
+								<div class="hero-val-rarity rare-rare font_christmas_base">Rare</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_5">-</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/6-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">Cyberus</div>
+								<div class="hero-val-rarity rare-rare font_christmas_base">Rare</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_6">-</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/7-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">Lucifer</div>
+								<div class="hero-val-rarity rare-epic font_christmas_base">Epic</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_7">-</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/8-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">Nyami</div>
+								<div class="hero-val-rarity rare-epic font_christmas_base">Epic</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_8">-</div>
+								</div>
+							</div>
+							</div>
+							<div class="col-3 col-md-1">
+							
+							<div class="hero-val-bg">
+								<img class="hero-val-img" src="assets/img/9-BG.jpg">
+								
+							<div class="hero-val-base">
+								<div class="hero-val-name font-shark">Sakura</div>
+								<div class="hero-val-rarity rare-legendary font_christmas_base">Legendary</div>
+								<div class="hero-val-amount font_christmas_base" id="hero_count_9">-</div>
+								</div>
+							</div>
+							</div>
+							
+						
+						</div>
+                    </div>
+					</div>
+                  <div class="col-lg-6 col-12 mb-5">
+                    <div class="container-fluid text-center ">
+                      <div class="row gy-0 g-0 img-max-width marginlr-auto flex_macfix card2"> <img src="assets/img/img_shroom.JPG" class="header_img">
+                        <div class="col-12 entry-shroom ">
+                          <div class="entry-text-bullets ">
+                            <div class="cat-header text-center font-shark"> Mint a Shroomy </div>
+                            <div class="cat-price text-center font-shark"> PRICE</div>
+							  <div class="shroom-prices">0 - 2000 : <span class="shroom-cost">0.15 BNB</span></div>
+							  <div class="shroom-prices">2001 - 3500 : <span class="shroom-cost">0.25 BNB</span></div>
+							  <div class="shroom-prices">3501 - 4500 : <span class="shroom-cost">0.35 BNB</span></div>
+							  <div class="shroom-prices mb-2">4501 - 4900 : <span class="shroom-cost">0.45 BNB</span></div>
+                            <div class="entry-text-main text-center font_christmas_base mb-2"> Shroomies are a unique set of <strong>5000</strong> collectible friends of the Heroes of the Lucid Lands.  There are only <span class="bolder" id="shroom_mint_remaining">-</span> remaining, so mint them fast! </div>
+                            <div class="entry-text-main text-center font_christmas_base"> </div>
+                            <div class="entry-text-main text-center font_christmas_base mt-2 bottom_always_fuckyou">
+                              <button onClick="mintShroom_Click()" id="btn_mint_shroom" class="btn mint_connect mb-3 hidden ld-ext-right" >Mint
+                              <div class="ld ld-ring ld-spin"></div>
+                              </button>
+								<button disabled id="btn_mint_shroom_loading" class="btn mint_connect mb-3 ld-ext-right running" >Loading
+                              <div class="ld ld-ring ld-spin"></div>
+                              </button>
+                              <div id="div_mint_shroom" class="hidden">Minting is currently <b>PAUSED</b></div>
+                              <div class="smaller text-truncate" id="token_address_shroom"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section_inventory" class="section_inventory hidden" >
+    <div class ="container text-center container_rewards " >
+      <div class="row g-0">
+        <div class="col-12 mt-5 ">
+          <div class="entry-header-main">
+            <div class="margin-lr">
+              <div class="entry-header font-shark mt-1">My Inventory</div>
+              <div class="container width-max" >
+                <div class="row">
+                  <div class="col-12 mt-4 width-max main-text mb-3" >"Here you will see your owned <b>Heroes</b> and <b>Shroomies</b> along with their current status.  Click on an NFT to change its market status or assign it to staking." </div>
+                  <div class="col-12 width-max mb-3" >
+                    <button class="btn btn-primary btn-lg btn-white btn-block  shark_connect text-truncate" onClick="connectInventory()" id="inventory_btn_connect">Click To Connect</button>
+                  </div>
+                  <hr/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	   <div class ="container-fluid text-center" >
+      <div class="row">
+        <div class="col-12 mt-2">
+          <div class="btn-group" orientation="vertical" role="group" aria-label="Options">
+            <button class="btn btn-primary btn-black btn-base" onClick="openHeroInventory()">Heroes</button>
+            <button class="btn btn-primary btn-black btn-base" onClick="openShroomInventory()">Shroomies</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class ="container-fluid text-center container_rewards " >
+      <div class="row">
+        <div class="col-12 main_entry" id="connected_sharks">
+          <div class="entry main_display">
+            <div class="margin-lr full-width">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 mb-5">
+                    <div class="container-fluid ">
+                      <div class="loader mt-3" id ="inventory_loader"> Loading...
+                        <div class="sk-fading-circle-large  mt-5 mb-5">
+                          <div class="sk-circle1 sk-circle"></div>
+                          <div class="sk-circle2 sk-circle"></div>
+                          <div class="sk-circle3 sk-circle"></div>
+                          <div class="sk-circle4 sk-circle"></div>
+                          <div class="sk-circle5 sk-circle"></div>
+                          <div class="sk-circle6 sk-circle"></div>
+                          <div class="sk-circle7 sk-circle"></div>
+                          <div class="sk-circle8 sk-circle"></div>
+                          <div class="sk-circle9 sk-circle"></div>
+                          <div class="sk-circle10 sk-circle"></div>
+                          <div class="sk-circle11 sk-circle"></div>
+                          <div class="sk-circle12 sk-circle"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="inventory_connected" class="hidden">
+                      <div class="col-12 italic mt-3"><small>Click to Select</small></div>
+                      <hr>
+                    </div>
+                    <div class="row shark_list mt-3" id="inventory_hero_gallery"> </div>
+					  <div class="row shark_list mt-3" id="inventory_shroom_gallery"> </div>
+                    <div id="inventory_disconnected" class="hidden">
+                      <div class="col-12 italic"><small>Not Connected</small></div>
+                      <div class="mt-3"> You are currently not connected, please click on Connect above to see your <i>Shroomies</i> and <i>Lucid Lands Heroes</i>.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section_market" class="section_market hidden" >
+    <div class ="container text-center container_rewards " >
+      <div class="row g-0">
+        <div class="col-12 mt-5 ">
+          <div class="entry-header-main">
+            <div class="margin-lr">
+              <div class="entry-header font-shark mt-1">Marketplace</div>
+              <div class="container width-max" >
+                <div class="row">
+                  <div class="col-12 col-md-6 mt-4 width-max main-text mb-3" >"Select from <b>Heroes</b> or <b>Shroomies</b> to browse the available selection.  If you want to place your own NFTs up for sale head to your Inventory." </div>
+                  <hr/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class ="container-fluid text-center" >
+      <div class="row">
+        <div class="col-12 mt-2">
+          <div class="btn-group" orientation="vertical" role="group" aria-label="Options">
+            <button class="btn btn-primary btn-black btn-base" onClick="openHeroMarket()">Heroes</button>
+            <button class="btn btn-primary btn-black btn-base" onClick="openShroomMarket()">Shroomies</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class ="container-fluid text-center container_rewards " >
+      <div class="row">
+        <div class="col-12 main_entry" id="connected_market">
+          <div class="entry main_display">
+            <div class="margin-lr full-width">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 mb-5">
+                    <div class="container-fluid ">
+                      <div class="loader mt-3" id ="market_loader"> Loading...
+                        <div class="sk-fading-circle-large  mt-5 mb-5">
+                          <div class="sk-circle1 sk-circle"></div>
+                          <div class="sk-circle2 sk-circle"></div>
+                          <div class="sk-circle3 sk-circle"></div>
+                          <div class="sk-circle4 sk-circle"></div>
+                          <div class="sk-circle5 sk-circle"></div>
+                          <div class="sk-circle6 sk-circle"></div>
+                          <div class="sk-circle7 sk-circle"></div>
+                          <div class="sk-circle8 sk-circle"></div>
+                          <div class="sk-circle9 sk-circle"></div>
+                          <div class="sk-circle10 sk-circle"></div>
+                          <div class="sk-circle11 sk-circle"></div>
+                          <div class="sk-circle12 sk-circle"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-xl-3 order-xl-2 full-width hidden mt-3" id="filter_main">
+                      <div class="filter-wrap">
+                        <button class="mt-2 mb-3 btn btn-white" type="button" id="filterButton" onClick="openFilter()">Open Filter</button>
+                        <div class="hidden filter-wrap__content" id="collapseFilter"> 
+                          <!-- filter -->
+                          <div class="filter">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_1_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_1_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_2_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_2_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_3_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_3_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_4_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_4_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_5_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_5_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_6_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_6_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_7_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_7_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4 ">
+                                  <label for="sort" id="sort_8_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_8_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_9_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_9_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_10_name" class="filter__label">-</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_10_values" class="filter__select">
+                                      <option value="Any">Any</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group">
+                                  <label for="sort" class="filter__label">Sort by:</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort" class="filter__select">
+                                      <option value="0">Price: Low to High</option>
+                                      <option value="1">Price: High to Low</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <button class="btn btn-white btn-lg" type="button" onClick="filterList();">APPLY FILTER</button>
+                                  <button class="btn btn-white btn-reset btn-lg" type="button" onClick="clearSort();">RESET FILTER</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- end filter --> 
+                        </div>
+                      </div>
+                    </div>
+					  <div class="col-12 col-xl-3 order-xl-2 full-width hidden mt-3" id="filter_hero_main">
+                      <div class="filter-wrap">
+                        <button class="mt-2 mb-3 btn btn-white" type="button" id="filterHeroButton" onClick="openHeroFilter()">Open Filter</button>
+                        <div class="hidden filter-wrap__content" id="collapseHeroFilter"> 
+                          <!-- filter -->
+                          <div class="filter">
+                            <div class="container-fluid">
+                              <div class="row justify-content-center">
+                                <div class="filter__group col-lg-4">
+                                  <label for="sort" id="sort_hero_name" class="filter__label">Hero Rarity</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_hero_values" class="filter__select">
+                                      <option value="0">Any</option>
+										<option value="1">Common</option>
+										<option value="2">Rare</option>
+										<option value="3">Epic</option>
+										<option value="4">Legendary</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="filter__group">
+                                  <label for="sort" class="filter__label">Sort by:</label>
+                                  <div class="filter__select-wrap">
+                                    <select name="sort" id="sort_hero" class="filter__select">
+                                      <option value="0">Price: Low to High</option>
+                                      <option value="1">Price: High to Low</option>
+										<option value="2">Recently Listed</option>
+                                      <option value="3">Recently Sold</option>
+										<option value="4">Most Viewed</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <button class="btn btn-white btn-lg" type="button" onClick="filterHeroList();">APPLY FILTER</button>
+                                  <button class="btn btn-white btn-reset btn-lg" type="button" onClick="clearSort();">RESET FILTER</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- end filter --> 
+                        </div>
+                      </div>
+                    </div>
+                    <div id="header_display" class="hidden">
+                      <hr>
+                      <div class="col-12 italic"><small>Click to Select</small></div>
+                    </div>
+                    <div class="row shark_list mt-3" id="market_gallery"> </div>
+                    <div class="col-12">
+                      <button class="btn btn-white hidden" type="button" id="btn_load_more" onClick="loadMoreItems();" >Load More</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section_staking" class="section_staking hidden" >
+    <div class ="container text-center container_rewards " >
+      <div class="row g-0">
+        <div class="col-12 mt-5 ">
+          <div class="entry-header-main">
+            <div class="margin-lr">
+              <div class="entry-header font-shark mt-1">Staking</div>
+              <div class="container width-max" >
+                <div class="row">
+                  <div class="col-12 col-md-6 mt-4 width-max main-text mb-3" >"<b>Lucid Lands Heroes</b> can be staked to gain returns in <i>Lucid Lands Gems</i>.  The amount earned depends on the rarity of the hero and the amount of time staked." </div>
+                  <div class="col-12 width-max mb-3" >
+                    <button class="btn btn-primary btn-lg btn-white btn-block  shark_connect text-truncate" onClick="connectInventory()" id="stake_btn_connect">Click To Connect</button>
+                  </div>
+                  <hr/>
+					
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class ="container-fluid text-center container_rewards g-0" >
+      <div class="row">
+        <div class="col-12 main_entry">
+          <div class="entry main_display">
+            <div class="margin-lr full-width">
+              <div class="container g-0">
+                <div class="row">
+                  <div class="col-md-12 mb-5">
+                    <div class="container-fluid g-0">
+                      <div class="loader mt-3 hidden" id ="stake_loader"> Loading...
+                        <div class="sk-fading-circle-large  mt-5 mb-5">
+                          <div class="sk-circle1 sk-circle"></div>
+                          <div class="sk-circle2 sk-circle"></div>
+                          <div class="sk-circle3 sk-circle"></div>
+                          <div class="sk-circle4 sk-circle"></div>
+                          <div class="sk-circle5 sk-circle"></div>
+                          <div class="sk-circle6 sk-circle"></div>
+                          <div class="sk-circle7 sk-circle"></div>
+                          <div class="sk-circle8 sk-circle"></div>
+                          <div class="sk-circle9 sk-circle"></div>
+                          <div class="sk-circle10 sk-circle"></div>
+                          <div class="sk-circle11 sk-circle"></div>
+                          <div class="sk-circle12 sk-circle"></div>
+                        </div>
+                      </div>
+                      <div id="stake_disconnected" class="hidden">
+                        <div class="col-12 italic"><small>Not Connected</small></div>
+                        <div class="mt-3"> You are currently not connected, please click on Connect above to see your <i>Staking Rewards</i>.</div>
+                      </div>
+                      <div id="stake_connected" class="">
+                        <div class="col-12 italic"><small>Your Staking Progress</small></div>
+                        <div class="col-12 mt-3"> Staked Heroes accrue <b>Lucid Lands Gem</b> tokens every minute based on a variable APY determined by their rarity.  Each <i>Hero</i> can claims their accrued LLG rewards every two weeks starting from the date of their original staking.  In order to <i>Stake a Hero</i> please navigate to the inventory page, click on a <i>Hero</i>, and then select <b>Stake</b>.</div>
+                        <div class="col-12 mt-3">
+                          <div class="container max-w">
+                            <div class="row">
+                              <div class="col-xl-6 mt-2">
+                                <div class="stake-cat">STAKED HEROES</div>
+                                <div class="stake-val" id="stake_val_heroes">- / -</div>
+                              </div>
+                              <div class="col-xl-6 mt-2">
+                                <div class="stake-cat">ACCUMULATED REWARDS</div>
+                                <div class="stake-val" id="stake_val_accumulated">- LLG</div>
+                              </div>
+                              <div class="col-xl-6 mt-2">
+                                <div class="stake-cat">REWARDS AVAILABLE TO CLAIM</div>
+                                <div class="stake-val" id="stake_val_available">- LLG</div>
+                              </div>
+                              <div class="col-xl-6 mt-2">
+                                <div class="stake-cat">REWARDS CLAIMED TO DATE</div>
+                                <div class="stake-val" id="stake_val_claimed">- LLG</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 width-max mt-3" >
+                          <button class="btn btn-primary btn-lg btn-white btn-block shark_connect text-truncate ld-ext-right" onClick="claimRewards()" id="stake_claim">Claim Rewards<div class="ld ld-ring ld-spin"></div></button>
+                          <div class="stake-tiny" id="stake_val_next">Next Claim Date -</div>
+                        </div>
+                      </div>
+						  <hr>
+						<div class="col-12">
+					<button class="mt-2 btn btn-white" type="button" id="calculatorButton" onClick="openCalculator()">Open Rewards Calculator</button>
+							<div class="tiny-text">Use the Rewards Calculator to See How Much You Could Be Earning</div>
+						</div>
+						<div class="col-12 mt-3 hidden" id="calculator_table">
+							<div class="table-responsive">
+						<table class="table table-light table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Hero</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Staking Rate</th>
+      <th scope="col">Initial Value</th>
+	  <th scope="col">Reward/Day</th>
+      <th scope="col">Reward/Month</th>
+    </tr>
+  </thead>
+  <tbody>
+	    <tr>
+     <th scope="row" class="rare-common">Talmut</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_3')"></i><span class="val_main" id="val_main_3">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_3')"></i></td>
+      <td >310%</td>
+      <td id="calc_init_3">0</td>
+	    <td id="calc_day_3">0</td>
+		<td id="calc_month_3">0</td>
+    </tr>
+   
+    <tr>
+     <th scope="row" class="rare-common">Wu Kong</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_1')"></i><span class="val_main" id="val_main_1">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_1')"></i></td>
+      <td>340%</td>
+      <td id="calc_init_1">0</td>
+	    <td id="calc_day_1">0</td>
+		<td id="calc_month_1">0</td>
+    </tr>
+	   <tr>
+      <th scope="row" class="rare-common">Bahamut</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_0')"></i><span class="val_main" id="val_main_0">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_0')"></i></td>
+      <td>370%</td>
+      <td id="calc_init_0">0</td>
+	  <td id="calc_day_0">0</td>
+		<td id="calc_month_0">0</td>
+    </tr>
+    <tr>
+     <th scope="row" class="rare-common">Medusa</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_2')"></i><span class="val_main" id="val_main_2">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_2')"></i></td>
+      <td>420%</td>
+      <td id="calc_init_2">0</td>
+	    <td id="calc_day_2">0</td>
+		<td id="calc_month_2">0</td>
+    </tr>
+	
+	    <tr>
+     <th scope="row" class="rare-rare">KEO502</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_4')"></i><span class="val_main" id="val_main_4">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_4')"></i></td>
+      <td >530%</td>
+      <td id="calc_init_4">0</td>
+	    <td id="calc_day_4">0</td>
+		<td id="calc_month_4">0</td>
+    </tr>
+	    <tr>
+     <th scope="row" class="rare-rare">Cyberus</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_5')"></i><span class="val_main" id="val_main_5">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_5')"></i></td>
+      <td >630%</td>
+      <td id="calc_init_5">0</td>
+	    <td id="calc_day_5">0</td>
+		<td id="calc_month_5">0</td>
+    </tr>
+	   <tr>
+     <th scope="row" class="rare-epic">Nyami</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_7')"></i><span class="val_main" id="val_main_7">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_7')"></i></td>
+      <td >980%</td>
+      <td id="calc_init_7">0</td>
+	    <td id="calc_day_7">0</td>
+		<td id="calc_month_7">0</td>
+    </tr>
+	    <tr>
+     <th scope="row" class="rare-epic">Lucifer</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_6')"></i><span class="val_main" id="val_main_6">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_6')"></i></td>
+      <td >1200%</td>
+      <td id="calc_init_6">0</td>
+	    <td id="calc_day_6">0</td>
+		<td id="calc_month_6">0</td>
+    </tr>
+	   
+	    <tr>
+     <th scope="row" class="rare-legendary">Sakura</th>
+      <td ><i class="fas fa-minus clickable" onClick="decreaseCalc('val_main_8')"></i><span class="val_main" id="val_main_8">0</span><i class="fas fa-plus clickable" onClick="increaseCalc('val_main_8')"></i></td>
+      <td >2000%</td>
+      <td id="calc_init_8">0</td>
+	    <td id="calc_day_8">0</td>
+		<td id="calc_month_8">0</td>
+    </tr>
+	   <tr>
+     <th scope="row" colspan="3">SUMMARY</th>
+      <td id="calc_init_10">0</td>
+	    <td id="calc_day_10">0</td>
+		<td id="calc_month_10">0</td>
+    </tr>
+  </tbody>
+</table>
+							</div>
+						</div>
+						  <div class="row shark_list mt-3" id="stake_gallery"> </div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="modal" id="modal_mint" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered"  role="document">
+    <div class="modal-content"  >
+      <div class="modal-body view-body">
+        <div> <img class="normal_nft view_nft img_loaded" crossOrigin="anonymous"  id="mint_img" alt="Shroom" src="assets/img/blurry.jpg"> <img class="normal_nft view_nft being_loaded" crossOrigin="anonymous"  id="mint_img_loader" alt="Shroom" src="assets/img/loading.gif">
+          <video  id="mint_shroom_video" class="video-mush hidden" controls>
+            <source src="https://lonelyjmarket.mypinata.cloud/ipfs/QmQ5o2gx8huvcGYtbdNdw5NgDLWwFzLguYeAMRUVqhG5Cz" type="video/mp4">
+            Your browser does not support the video tag. </video>
+        </div>
+        <div class="container text-center view-screen">
+          <div class="row mb-1">
+            <div class="col-12 main-shark-image">
+              <div class=" scroll_down animate-flicker col-12" id="mint_text_loading">MINTING IN PROGRESS</div>
+              <div class="col-12 display_name hidden" id="mint_name" ><b>Minting in Progress</b></div>
+              <div class="col-12 mb-3 text-center" id="view_stake">
+                <button class="btn-rounded btn-close-final small-button ld-ext-right" id="btn_stake"  onClick="beginStakeNFTModal()"><span id="view_stake_btn_txt">Stake NFT</span>
+                <div class="ld ld-ring ld-spin"></div>
+                </button>
+                <div class="smaller" id="txt_stake">
+                  <smaller>Click here to Stake this Hero</smaller>
+                </div>
+              </div>
+              <hr>
+              <div class="col-12 mt-2">
+                <div class="mint_text" id="mint_text">"A unique Shroomy is finding its way to you, please be patient while the blockchain assembles him for you."</div>
+                <div id="mint_attribute_header" class="col-12 mt-3 font-shark lower_header hidden">Attributes</div>
+                <div class="row mb-3" id="mint_attribute"> </div>
+              </div>
+              <div class="col-12 mt-1 hidden" id="mint_close">
+                <button class="btn-rounded btn-close-final mb-2 "  onClick="closeMintToInventory()">View My Inventory</button>
+                <button class="btn-rounded btn-close-final "  onClick="closeMint()">Return to the Forge</button>
+              </div>
+              <div class="col-12 mt-1 hidden" id="buyer_btns">
+                <div class="col-12 mb-2 text-center">
+                  <hr/>
+                  Marketplace Actions
+                  <div>
+                    <button class="btn-rounded btn-close-final small-button ld-ext-right mt-1" id="buy_btn"  onClick="beginBuyItem()"><span id="buy_btn_txt">Buy - </span>
+                    <div class="ld ld-ring ld-spin"></div>
+                    </button>
+                    <div class="smaller mb-3">
+                      <smaller>Purchase</smaller>
+                    </div>
+                  </div>
+                  <hr/>
+                </div>
+              </div>
+              <div class="col-12 mt-1 hidden" id="mint_view_btns">
+                <div class="col-12 mb-2 text-center">
+                  <hr/>
+                  <div class="font-shark">Owner Actions</div>
+                  <div id="owner_approve" >
+                    <button class="btn-rounded btn-close-final small-button ld-ext-right" id="approve_btn"  onClick="beginApproveItem()">Approve Item
+                    <div class="ld ld-ring ld-spin"></div>
+                    </button>
+                    <div class="smaller mb-3">
+                      <smaller>Approve this NFT for the Marketplace</smaller>
+                    </div>
+                  </div>
+                  <div id="owner_sell" >
+                    <input type="text" id="sell_price" name="price" placeholder="Please enter Listing Price">
+                    <button class="btn-rounded btn-close-final small-button ld-ext-right" id="sell_btn"  onClick="beginListItem()">List
+                    <div class="ld ld-ring ld-spin"></div>
+                    </button>
+                    <div class="smaller mb-3">
+                      <smaller>0.01 BNB Minimum Price</smaller>
+                    </div>
+                  </div>
+                  <div id="owner_cancel" >
+                    <button class="btn-rounded btn-close-final small-button ld-ext-right" id="cancel_btn"  onClick="beginSaleCancel()">Cancel Listing
+                    <div class="ld ld-ring ld-spin"></div>
+                    </button>
+                    <div class="smaller mb-3">
+                      <smaller>Cancel your Listing</smaller>
+                    </div>
+                  </div>
+                  <input type="text" id="transfer_address" name="address" placeholder="Please enter destination Address">
+                  <button class="btn-rounded btn-close-final small-button ld-ext-right" id="transfer_btn"  onClick="transferNFT()">Transfer
+                  <div class="ld ld-ring ld-spin"></div>
+                  </button>
+                  <div class="smaller">
+                    <smaller>Click to Transfer NFT</smaller>
+                  </div>
+                  <hr/>
+                </div>
+              </div>
+              <div class="col-12 mt-1 hidden" id="view_btns">
+                <button class="btn-rounded btn-close-final "  onClick="closeMint()">Close View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	<div class="modal" id="modalStake" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" >
+      <div class="modal-body-warning">
+        <div class="container padding-20">
+          <div class="row">
+            <div class="col-12 text-center mb-2">
+              <div class="help-header ">Unstaking Disclaimer</div>
+              <div class="mb-1">By unstaking your Hero you forfeit any Accumulated and Claimable rewards, please make sure that you have first claimed all eligible rewards for this Hero before unstaking.  If you unstake this Hero and then restake their Accumulated rewards will have been reset to 0.</div>
+            </div>
+            <div class="col-12 text-center">
+              <button class="btn-rounded btn-close-final small-button" id="btn_unstake"  onClick="beginStakeNFT()">Unstake NFT
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="connectHelpModal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" >
+      <div class="modal-body">
+        <div class="container helper-container">
+          <div class="row">
+            <div class="col-12 text-center mb-2">
+              <div class="help-header ">You Are Not Connected to BSC</div>
+              <div class="mb-1">Don't worry, we can help sort you out.</div>
+              <div class="help-header mb-1">On Mobile</div>
+              <div class="mb-2"><a href="https://metamask.app.link/dapp/app.lucidlands.io/">
+                <button class="btn-outline-white btn med_mint">Open in MetaMask</button>
+                </a></div>
+              <div><a href="https://link.trustwallet.com/open_url?coin_id=60&url=https://app.lucidlands.io/" class="link-helper">
+                <button class="btn-outline-white btn med_mint">Open in TrustWallet</button>
+                </a></div>
+            </div>
+            <div class="col-12 text-center">
+              <div class="help-header">On Desktop</div>
+              <div><a href="https://metamask.io/download" class="link-helper">
+                <button class="btn-outline-white btn med_mint">Download MetaMask</button>
+                </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MDB --> 
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+></script> 
+<!--Helpers--> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script type="text/javascript" src="js/web3.min.js"></script> 
+<!--Connections--> 
+<script src="js/debug.js?v129"></script> 
+<script src="js/rank.js"></script> 
+<script src="js/percentages.js"></script> 
+<script src="js/gm_abi.js?v239"></script> 
+<script src="js/ipfs_helper.js"></script> 
+	<script src="js/nft_gate_abi.js?v129"></script> 
+<script src="js/nft_hero_abi.js?v129"></script> 
+<script src="js/stake_abi.js?v11429"></script> 
+<script src="js/nft_shroom_abi.js?v1429"></script> 
+<script src="js/marketplace_abi.js?v112"></script> 
+<script src="js/lonelyj_web3.js?v159"></script> 
+<script src="js/erc20_abi.js"></script> 
+<script src="js/html2canvas.min.js"></script> 
+<script src="js/market.js?v312"></script>
+</body>
+</html>
